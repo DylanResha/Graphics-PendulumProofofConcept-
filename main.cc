@@ -5,11 +5,6 @@
 #include <stdio.h>
 #include <math.h>
 
-void init(void) 
-{
-    glClearColor (0.0, 0.0, 0.0, 0.0);
-    glLoadIdentity();
-}
 
 
 //main for objects
