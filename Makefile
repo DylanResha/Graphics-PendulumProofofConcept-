@@ -1,7 +1,7 @@
 
 CC = gcc
 LDLIBS =  -lglut -lGL -lGLU -lm
-HEADERS = includes.h
+HEADERS = includes.h globals.h
 OBJS = init.o display.o pend.o reshape.o
 
 all : pendpoc tags

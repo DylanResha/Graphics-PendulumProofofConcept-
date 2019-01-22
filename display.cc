@@ -1,3 +1,5 @@
+#include "includes.h"
+#include "globals.h"
 
 //pulled from main.cc
 void display(void)
@@ -65,5 +67,7 @@ void display(void)
     
 
     glFlush();
+
+frames++;
 
 }

@@ -1,3 +1,5 @@
+#include "includes.h"
+#include "globals.h"
 
 
 void init(void) 

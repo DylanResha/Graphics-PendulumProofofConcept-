@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <math.h>
-#define Nstep 1000000
-
+#include "includes.h"
 
 // These two functions are the first and second derivative equations
 // to be used in the Runge-Kutta method for the dynamical motion of the pendulum 

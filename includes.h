@@ -9,3 +9,5 @@
 #include <math.h>
 
 #endif
+
+#define Nstep 1000000
