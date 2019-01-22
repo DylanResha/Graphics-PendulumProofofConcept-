@@ -1,8 +1,7 @@
 #include "includes.h"
 #include "globals.h"
 
-
- int main(int argc, char** argv)
+int main(int argc, char** argv)
 {
 
    double t=0.0;
