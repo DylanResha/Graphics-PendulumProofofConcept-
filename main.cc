@@ -53,30 +53,32 @@ void step(double *t, double *theta, double *omega )
         *theta = *theta + h/6*(k1+2*k2+2*k3+k4);
         *omega = *omega + h/6*(j1+2*j2+2*j3+j4);
         *t = *t + h;
+ glutPostRedisplay();
+}
+
+void idleFunc(){
+    for (long i=0; i<2*Nstep; i++ ) {
+      //printf("%f %f %f\n", t, theta, omega);
+      step( &t, &theta, &omega);
+   }
 }
 
 int main(int argc, char** argv)
 {
 
-   double t=0.0;
-   double theta=M_PI/4.0;
-   double omega=0.0;
+ 
 
-   for (long i=0; i<2*Nstep; i++ ) {
-      //printf("%f %f %f\n", t, theta, omega);
-      step( &t, &theta, &omega);
-   }
 
 
     glutInit(&argc, argv);
     glutInitDisplayMode (GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGB);
-    glutInitWindowSize (1000, 1000); 
+    glutInitWindowSize (500, 500); 
     glutInitWindowPosition (100, 100);
     glutCreateWindow (argv[0]);
     init ();
     glutReshapeFunc(reshape);
     glutDisplayFunc(display); 
-    glutPostRedisplay(); 
+    glutIdleFunc(idleFunc);
     glutMainLoop();
     return 0;
 }
