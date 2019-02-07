@@ -50,5 +50,24 @@ void showFPS(){
  free(charString);
 
 }
+void showFPP(){
+static int period_start;
+static int period_stop;
+static double startTime;
+static double stopTime;
+static double period;
+
+if(!period_stop && !period_start && (omega*theta < 0.0)){
+ period_start = 1;
+ startTime=t;
+}
+
+else if(!period_stop && period_start && (omega*theta < 0.0)){
+ period_start = 1;
+ startTime=t;
+}
+
+
+}
 
 #endif

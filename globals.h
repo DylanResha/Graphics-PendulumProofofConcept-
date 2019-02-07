@@ -7,6 +7,7 @@ extern void reshape(int, int);
 extern void step(double*, double*, double*);
 extern void drawString(GLuint, GLuint, void*, const char*);
 extern void showFPS(void);
+extern void showFPP(void);
 extern void checkFPS(int);
 extern double t;
 extern double theta;

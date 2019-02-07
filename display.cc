@@ -1,8 +1,15 @@
 #include "includes.h"
 #include "globals.h"
 
+void glutSleep(int millisecondsToWait){
 
-//pulled from main.cc
+	int startTime=glutGet(GLUT_ELAPSED_TIME);
+
+	do{/*waiting*/}
+	while((glutGet(GLUT_ELAPSED_TIME)-startTime)<millisecondsToWait);
+
+}
+
 void display(void)
 {
 
@@ -149,8 +156,10 @@ glPushMatrix();
 glPopMatrix();
 ///////////////////////////////    
     showFPS();
+    //showFPP();
     glutSwapBuffers();
+    //glutSleep(16);
 
- //frames++;
+
 
 }
