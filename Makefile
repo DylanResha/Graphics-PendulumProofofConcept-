@@ -33,5 +33,5 @@ pristine :
 	touch *
 
 tags :
-	ctags *.h *.cc
+	ctags *.h *.cc *.c
 
