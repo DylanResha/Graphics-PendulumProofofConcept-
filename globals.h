@@ -3,11 +3,11 @@
 
 extern void display(void);
 extern void init(void);
-extern void fps(int);
 extern void reshape(int, int);
 extern void step(double*, double*, double*);
 extern void drawString(GLuint, GLuint, void*, const char*);
-extern void showFps(void);
+extern void showFPS(void);
+extern void checkFPS(int);
 extern double t;
 extern double theta;
 extern double omega;

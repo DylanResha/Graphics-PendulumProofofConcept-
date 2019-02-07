@@ -12,7 +12,7 @@ double omegadot(double t, double theta, double omega)
 {
    static double R = 1.00;  // Length of pendulum  (meters)
    static double g = 9.80;  // Normalized gravitational constant  (m/s^2)
-   static double b = 0.10;  // Frictional damping constant
+   static double b = 0.0;  // Frictional damping constant
    static double m = 1.00;  // Mass in normalized gravitational units (kg)
    static double A = 0.20;  // Amplitude of initial driving force
    static double k = 0.50;  // Frequency parameter of initial driving force
@@ -57,19 +57,15 @@ void step(double *t, double *theta, double *omega )
 }
 
 void idleFunc(){
-    for (long i=0; i<2*Nstep; i++ ) {
-      //printf("%f %f %f\n", t, theta, omega);
+
       step( &t, &theta, &omega);
-   }
+
 }
 
 int main(int argc, char** argv)
 {
 
  
-
-
-
     glutInit(&argc, argv);
     glutInitDisplayMode (GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize (500, 500); 
@@ -78,6 +74,7 @@ int main(int argc, char** argv)
     init ();
     glutReshapeFunc(reshape);
     glutDisplayFunc(display); 
+    //showFPS();
     glutIdleFunc(idleFunc);
     glutMainLoop();
     return 0;

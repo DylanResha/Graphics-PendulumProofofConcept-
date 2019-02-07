@@ -13,7 +13,6 @@ void drawString(GLuint x, GLuint y, void *font, const char* string)
   for(c=string; *c!='\0'; c++)
 	glutBitmapCharacter(font, *c);
 
-
 }
 
 void showFPS(){

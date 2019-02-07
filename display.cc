@@ -7,7 +7,7 @@ void display(void)
 {
 
 extern double theta;
-
+   // printf("%f\n",theta);
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
     glLoadIdentity();   // Call this before setting the viewing position 
 
@@ -23,7 +23,7 @@ extern double theta;
 
     glColor3f(0.0,1.0,0.0);
 
-    // This should be to draw a cylinder 
+    // This should be to draw a cylinder horizontal support
     glPushMatrix();
     glTranslated(2.0,0.0,5.0);  
     glRotatef(-90.0,1.0,1.0,0.0);  
@@ -36,44 +36,121 @@ extern double theta;
             (GLint)    20 );
     glPopMatrix();
 
-    // This should be to draw a cylinder 
+
+    // This should be to draw a cylinder back hold
     glPushMatrix();
-    glTranslated(2.0,0.0,1.0);    
+    glTranslated(2.0,2.5,-3.0); 
+    glColor3f (0.0,1.0,1.0);
+    gluCylinder(gluNewQuadric(), 
+            (GLdouble) 0.1,
+            (GLdouble) 0.1,
+            (GLdouble) 8.0,
+            (GLint)    40,
+            (GLint)    40 );
+    glPopMatrix();
+
+    // This should be to draw a cylinder pendulum
+    glPushMatrix();
+    glTranslated(2.0,0.0,5.0);
+    glRotatef(180.0,1.0,0.0,0.0); 
+    glRotated((double)180*theta/M_PI,1,0,0);
+    glRotated((double)180*theta/M_PI,0,0,1);    
     glColor3f (0.0,0.0,1.0);
     gluCylinder(gluNewQuadric(), 
             (GLdouble) 0.1,
             (GLdouble) 0.1,
             (GLdouble) 4.0,
-            (GLint)    20,
-            (GLint)    20 );
-    glPopMatrix();
-
-    // This should be to draw a cylinder 
-    glPushMatrix();
-    glTranslated(-3.0,3.0,-5.0);    
-    glColor3f (0.0,1.0,1.0);
-    gluCylinder(gluNewQuadric(), 
-            (GLdouble) 0.1,
-            (GLdouble) 0.1,
-            (GLdouble) 10.0,
-            (GLint)    20,
-            (GLint)    20 );
-    glPopMatrix();
-
-    // This should draw a red sphere 
-    glPushMatrix();
-    glRotated((double)180*theta/M_PI,1,0,0);
-    glRotated((double)180*theta/M_PI,0,0,1);
-
+            (GLint)    40,
+            (GLint)    40 );
+    /*glTranslated(2.0,0.0,3.5);
     glColor3f (1.0,0.0,0.0);
     gluSphere(gluNewQuadric(), 
              (GLdouble) 0.5,
              (GLint)     10,
              (GLint)     10 );
+*/
     glPopMatrix();
 
+
+   glPopMatrix();
+    // This should draw a red sphere 
+    glPushMatrix();
+     glTranslated(2.0,0.0,5.0);
+      glRotated((double)180*theta/M_PI,1,0,0);
+      glRotated((double)180*theta/M_PI,0,0,1);
+      glPushMatrix();
+    glTranslated(0.0,0.0,-4.0); 
+    glColor3f (1.0,0.0,0.0);
+    gluSphere(gluNewQuadric(), 
+             (GLdouble) 0.5,
+             (GLint)     10,
+             (GLint)     10 );
+
+    glPopMatrix();
+   glPopMatrix();
+///////////////////////////////
+//human ref
+	//head
+glPushMatrix();
+    glTranslated(4.0,4.0,5.0);
+    glColor3f (1.0,0.0,1.0);
+    gluSphere(gluNewQuadric(), 
+             (GLdouble) 0.75,
+             (GLint)     10,
+             (GLint)     10 );
+glPopMatrix();
+	//body
+glPushMatrix();
+    glTranslated(4.0,4.0,5.0);
+    glRotatef(180.0,1.0,0.0,0.0);  
+    glColor3f (0.0,1.0,1.0);
+    gluCylinder(gluNewQuadric(), 
+            (GLdouble) 0.1,
+            (GLdouble) 0.1,
+            (GLdouble) 4.0,
+            (GLint)    40,
+            (GLint)    40 );
+glPopMatrix();   
+	//legs
+glPushMatrix();
+    glTranslated(4.0,4.0,1.0);
+    glRotatef(200.0,1.0,0.0,0.0);  
+    glColor3f (0.0,1.0,1.0);
+    gluCylinder(gluNewQuadric(), 
+            (GLdouble) 0.1,
+            (GLdouble) 0.1,
+            (GLdouble) 3.0,
+            (GLint)    40,
+            (GLint)    40 );
+glPopMatrix();  
+ 
+glPushMatrix();
+    glTranslated(4.0,4.0,1.0);
+    glRotatef(160.0,1.0,0.0,0.0);  
+    glColor3f (0.0,1.0,1.0);
+    gluCylinder(gluNewQuadric(), 
+            (GLdouble) 0.1,
+            (GLdouble) 0.1,
+            (GLdouble) 3.0,
+            (GLint)    40,
+            (GLint)    40 );
+glPopMatrix();
+	//arms
+glPushMatrix();
+    glTranslated(4.0,2.5,3.0);  
+    glRotatef(-90.0,1.0,0.0,0.0);  
+    glColor3f (1.0,0.0,1.0);
+    gluCylinder(gluNewQuadric(), 
+            (GLdouble) 0.1,
+            (GLdouble) 0.1,
+            (GLdouble) 3.0,
+            (GLint)    20,
+            (GLint)    20 );
+glPopMatrix();
+///////////////////////////////    
+    showFPS();
     glutSwapBuffers();
 
- frames++;
+ //frames++;
 
 }
