@@ -40,3 +40,6 @@ pristine :
 tags :
 	ctags *.h *.cc *.c
 
+DESIRED FRAME RATE : 
+	define SYNC
+	endef

@@ -172,10 +172,10 @@ glPopMatrix();
     showFPS();
     showFPP();
     glutSwapBuffers();
-#ifdef SYNC
-    float desired = 60;
-    //glutSleep();
-#endif
+//#ifdef SYNC
+    float desired = 1/60;
+    glutSleep(desired);
+//#endif
 
 
 }
