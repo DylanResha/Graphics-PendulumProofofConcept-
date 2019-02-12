@@ -69,13 +69,6 @@ extern double theta;
             (GLdouble) 4.0,
             (GLint)    40,
             (GLint)    40 );
-    /*glTranslated(2.0,0.0,3.5);
-    glColor3f (1.0,0.0,0.0);
-    gluSphere(gluNewQuadric(), 
-             (GLdouble) 0.5,
-             (GLint)     10,
-             (GLint)     10 );
-*/
     glPopMatrix();
 
 
@@ -95,6 +88,27 @@ extern double theta;
 
     glPopMatrix();
    glPopMatrix();
+//cylinder base
+ glPushMatrix();
+  glTranslated(2.0,2.5,-3.0);
+  glColor3f (0.0,1.0,0.0);
+  gluDisk(gluNewQuadric(), 
+    (GLdouble) 0,
+    (GLdouble) 5,
+    (GLint)    20,
+    (GLint)    10 );
+ glPopMatrix();
+
+ glPushMatrix();
+  glTranslated(2.0,2.5,-3.5);
+  glColor3f (0.0,0.8,0.0);
+  gluCylinder(gluNewQuadric(), 
+    (GLdouble) 5,
+    (GLdouble) 5,
+    (GLdouble) 0.5,
+    (GLint)    20,
+    (GLint)    10 );
+ glPopMatrix();
 ///////////////////////////////
 //human ref
 	//head
@@ -156,10 +170,12 @@ glPushMatrix();
 glPopMatrix();
 ///////////////////////////////    
     showFPS();
-    //showFPP();
+    showFPP();
     glutSwapBuffers();
-    //glutSleep(16);
-
+#ifdef SYNC
+    float desired = 60;
+    //glutSleep();
+#endif
 
 
 }

@@ -74,7 +74,6 @@ int main(int argc, char** argv)
     init ();
     glutReshapeFunc(reshape);
     glutDisplayFunc(display); 
-    //showFPS();
     glutIdleFunc(idleFunc);
     glutMainLoop();
     return 0;
