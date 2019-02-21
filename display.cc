@@ -21,7 +21,7 @@ extern double theta;
     // We are going to set our position to be down the Y-Axis looking at the
     // center of the coordinate frame.  The positive Z-Axis will be up.
 
-    gluLookAt( 20.0,   0.0, 5.0,  // Eye
+    gluLookAt( -20.0,   0.0, 5.0,  // Eye
                 0.0,   0.0, 0.0,  // Center
                 0.0,   0.0, 1.0); // Up
 
@@ -33,7 +33,7 @@ extern double theta;
     // This should be to draw a cylinder horizontal support
     glPushMatrix();
     glTranslated(2.0,0.0,5.0);  
-    glRotatef(-90.0,1.0,1.0,0.0);  
+    glRotatef(-90.0,1.0,0.0,0.0);  
     glColor3f (1.0,0.0,1.0);
     gluCylinder(gluNewQuadric(), 
             (GLdouble) 0.1,
@@ -43,10 +43,9 @@ extern double theta;
             (GLint)    20 );
     glPopMatrix();
 
-
     // This should be to draw a cylinder back hold
     glPushMatrix();
-    glTranslated(2.0,2.5,-3.0); 
+    glTranslated(2.0,4.0,-3.0); 
     glColor3f (0.0,1.0,1.0);
     gluCylinder(gluNewQuadric(), 
             (GLdouble) 0.1,
@@ -110,64 +109,7 @@ extern double theta;
     (GLint)    10 );
  glPopMatrix();
 ///////////////////////////////
-//human ref
-	//head
-glPushMatrix();
-    glTranslated(4.0,4.0,5.0);
-    glColor3f (1.0,0.0,1.0);
-    gluSphere(gluNewQuadric(), 
-             (GLdouble) 0.75,
-             (GLint)     10,
-             (GLint)     10 );
-glPopMatrix();
-	//body
-glPushMatrix();
-    glTranslated(4.0,4.0,5.0);
-    glRotatef(180.0,1.0,0.0,0.0);  
-    glColor3f (0.0,1.0,1.0);
-    gluCylinder(gluNewQuadric(), 
-            (GLdouble) 0.1,
-            (GLdouble) 0.1,
-            (GLdouble) 4.0,
-            (GLint)    40,
-            (GLint)    40 );
-glPopMatrix();   
-	//legs
-glPushMatrix();
-    glTranslated(4.0,4.0,1.0);
-    glRotatef(200.0,1.0,0.0,0.0);  
-    glColor3f (0.0,1.0,1.0);
-    gluCylinder(gluNewQuadric(), 
-            (GLdouble) 0.1,
-            (GLdouble) 0.1,
-            (GLdouble) 3.0,
-            (GLint)    40,
-            (GLint)    40 );
-glPopMatrix();  
- 
-glPushMatrix();
-    glTranslated(4.0,4.0,1.0);
-    glRotatef(160.0,1.0,0.0,0.0);  
-    glColor3f (0.0,1.0,1.0);
-    gluCylinder(gluNewQuadric(), 
-            (GLdouble) 0.1,
-            (GLdouble) 0.1,
-            (GLdouble) 3.0,
-            (GLint)    40,
-            (GLint)    40 );
-glPopMatrix();
-	//arms
-glPushMatrix();
-    glTranslated(4.0,2.5,3.0);  
-    glRotatef(-90.0,1.0,0.0,0.0);  
-    glColor3f (1.0,0.0,1.0);
-    gluCylinder(gluNewQuadric(), 
-            (GLdouble) 0.1,
-            (GLdouble) 0.1,
-            (GLdouble) 3.0,
-            (GLint)    20,
-            (GLint)    20 );
-glPopMatrix();
+
 ///////////////////////////////    
     showFPS();
     showFPP();
