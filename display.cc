@@ -1,6 +1,8 @@
 #include "includes.h"
 #include "globals.h"
 
+
+
 void glutSleep(int millisecondsToWait){
 
 	int startTime=glutGet(GLUT_ELAPSED_TIME);
@@ -13,7 +15,7 @@ void glutSleep(int millisecondsToWait){
 void display(void)
 {
 
-extern double theta;
+ extern double theta;
    // printf("%f\n",theta);
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
     glLoadIdentity();   // Call this before setting the viewing position 
@@ -21,8 +23,8 @@ extern double theta;
     // We are going to set our position to be down the Y-Axis looking at the
     // center of the coordinate frame.  The positive Z-Axis will be up.
 
-    gluLookAt( 20.0,   0.0, 5.0,  // Eye
-                0.0,   0.0, 0.0,  // Center
+    gluLookAt( Cam_x, Cam_y, Cam_z,  // Eye
+                Cent_x, Cent_y, Cent_z,  // Center
                 0.0,   0.0, 1.0); // Up
 
 
@@ -30,10 +32,14 @@ extern double theta;
 
     glColor3f(0.0,1.0,0.0);
 
+glPushMatrix();
+glTranslated(10.0, 10.0, 1.0);
+glScaled(0.1, 0.1, 0.1);
+
     // This should be to draw a cylinder horizontal support
     glPushMatrix();
-    glTranslated(2.0,0.0,5.0);  
-    glRotatef(-90.0,1.0,1.0,0.0);  
+    glTranslated(2.0, 0.0, 11.0);  
+    glRotatef(-90.0, -1.0, 0.0, 0.0);  
     glColor3f (1.0,0.0,1.0);
     gluCylinder(gluNewQuadric(), 
             (GLdouble) 0.1,
@@ -46,7 +52,7 @@ extern double theta;
 
     // This should be to draw a cylinder back hold
     glPushMatrix();
-    glTranslated(2.0,2.5,-3.0); 
+    glTranslated(2.0, 0.0, 3.0); 
     glColor3f (0.0,1.0,1.0);
     gluCylinder(gluNewQuadric(), 
             (GLdouble) 0.1,
@@ -58,7 +64,7 @@ extern double theta;
 
     // This should be to draw a cylinder pendulum
     glPushMatrix();
-    glTranslated(2.0,0.0,5.0);
+    glTranslated(2.0,0.0,11.0);
     glRotatef(180.0,1.0,0.0,0.0); 
     glRotated((double)180*theta/M_PI,1,0,0);
     glRotated((double)180*theta/M_PI,0,0,1);    
@@ -72,14 +78,13 @@ extern double theta;
     glPopMatrix();
 
 
-   glPopMatrix();
+
     // This should draw a red sphere 
     glPushMatrix();
-     glTranslated(2.0,0.0,5.0);
+     glTranslated(2.0,0.0,11.0);
       glRotated((double)180*theta/M_PI,1,0,0);
       glRotated((double)180*theta/M_PI,0,0,1);
-      glPushMatrix();
-    glTranslated(0.0,0.0,-4.0); 
+     glTranslated(0.0, 0.0, -4.0);
     glColor3f (1.0,0.0,0.0);
     gluSphere(gluNewQuadric(), 
              (GLdouble) 0.5,
@@ -87,10 +92,10 @@ extern double theta;
              (GLint)     10 );
 
     glPopMatrix();
-   glPopMatrix();
+
 //cylinder base
  glPushMatrix();
-  glTranslated(2.0,2.5,-3.0);
+  glTranslated(2.0,2.5,3.0);
   glColor3f (0.0,1.0,0.0);
   gluDisk(gluNewQuadric(), 
     (GLdouble) 0,
@@ -100,7 +105,7 @@ extern double theta;
  glPopMatrix();
 
  glPushMatrix();
-  glTranslated(2.0,2.5,-3.5);
+  glTranslated(2.0,2.5,2.5);
   glColor3f (0.0,0.8,0.0);
   gluCylinder(gluNewQuadric(), 
     (GLdouble) 5,
@@ -109,65 +114,119 @@ extern double theta;
     (GLint)    20,
     (GLint)    10 );
  glPopMatrix();
+glPopMatrix();
+
 ///////////////////////////////
-//human ref
-	//head
-glPushMatrix();
-    glTranslated(4.0,4.0,5.0);
-    glColor3f (1.0,0.0,1.0);
-    gluSphere(gluNewQuadric(), 
-             (GLdouble) 0.75,
-             (GLint)     10,
-             (GLint)     10 );
-glPopMatrix();
-	//body
-glPushMatrix();
-    glTranslated(4.0,4.0,5.0);
-    glRotatef(180.0,1.0,0.0,0.0);  
-    glColor3f (0.0,1.0,1.0);
-    gluCylinder(gluNewQuadric(), 
-            (GLdouble) 0.1,
-            (GLdouble) 0.1,
-            (GLdouble) 4.0,
-            (GLint)    40,
-            (GLint)    40 );
-glPopMatrix();   
-	//legs
-glPushMatrix();
-    glTranslated(4.0,4.0,1.0);
-    glRotatef(200.0,1.0,0.0,0.0);  
-    glColor3f (0.0,1.0,1.0);
-    gluCylinder(gluNewQuadric(), 
-            (GLdouble) 0.1,
-            (GLdouble) 0.1,
-            (GLdouble) 3.0,
-            (GLint)    40,
-            (GLint)    40 );
-glPopMatrix();  
- 
-glPushMatrix();
-    glTranslated(4.0,4.0,1.0);
-    glRotatef(160.0,1.0,0.0,0.0);  
-    glColor3f (0.0,1.0,1.0);
-    gluCylinder(gluNewQuadric(), 
-            (GLdouble) 0.1,
-            (GLdouble) 0.1,
-            (GLdouble) 3.0,
-            (GLint)    40,
-            (GLint)    40 );
-glPopMatrix();
-	//arms
-glPushMatrix();
-    glTranslated(4.0,2.5,3.0);  
-    glRotatef(-90.0,1.0,0.0,0.0);  
-    glColor3f (1.0,0.0,1.0);
-    gluCylinder(gluNewQuadric(), 
-            (GLdouble) 0.1,
-            (GLdouble) 0.1,
-            (GLdouble) 3.0,
-            (GLint)    20,
-            (GLint)    20 );
-glPopMatrix();
+//Room
+//floor
+	glPushMatrix();
+	//glBindTexture(GL_TEXTURE_2D, textureID[57]);
+	 glPolygonMode(GL_FRONT, GL_FILL);
+	 glPolygonMode(GL_BACK, GL_FILL);
+	 glColor3f(0.8, 0.8, 0.8);
+	  glBegin ( GL_POLYGON );
+		//glTexCoord2d(0.0, 0.0);
+		glVertex3f ( 0.0, 0.0, 0.0 );
+		//glTexCoord2d(0.0, 1.0);
+		glVertex3f ( 20.0, 0.0, 0.0 );	
+		//glTexCoord2d(1.0, 1.0);
+		glVertex3f ( 20.0, 20.0, 0.0 );
+		//glTexCoord2d(1.0, 0.0);
+		glVertex3f ( 0.0, 20.0, 0.0 );
+	  glEnd();
+	glPopMatrix();
+
+//ceiling
+	glPushMatrix();
+	//glBindTexture(GL_TEXTURE_2D, textureID[57]);
+	 glPolygonMode(GL_FRONT, GL_FILL);
+	 glPolygonMode(GL_BACK, GL_FILL);
+	 glColor3f(0.8, 0.6, 0.8);
+	  glBegin ( GL_POLYGON );
+		//glTexCoord2d(0.0, 0.0);
+		glVertex3f ( 0.0, 0.0, 10.0 );
+		//glTexCoord2d(0.0, 1.0);
+		glVertex3f ( 20.0, 0.0, 10.0 );	
+		//glTexCoord2d(1.0, 1.0);
+		glVertex3f ( 20.0, 20.0, 10.0 );
+		//glTexCoord2d(1.0, 0.0);
+		glVertex3f ( 0.0, 20.0, 10.0 );
+	  glEnd();
+	glPopMatrix();
+
+//left wall
+	glPushMatrix();
+	//glBindTexture(GL_TEXTURE_2D, textureID[57]);
+	 glPolygonMode(GL_FRONT, GL_FILL);
+	 glPolygonMode(GL_BACK, GL_FILL);
+	 glColor3f(0.6, 0.8, 0.8);
+	  glBegin ( GL_POLYGON );
+		//glTexCoord2d(0.0, 0.0);
+		glVertex3f ( 0.0, 0.0, 0.0 );
+		//glTexCoord2d(0.0, 1.0);
+		glVertex3f ( 0.0, 0.0, 10.0 );	
+		//glTexCoord2d(1.0, 1.0);
+		glVertex3f ( 0.0, 20.0, 10.0 );
+		//glTexCoord2d(1.0, 0.0);
+		glVertex3f ( 0.0, 20.0, 0.0 );
+	  glEnd();
+	glPopMatrix();
+
+//right wall
+	glPushMatrix();
+	//glBindTexture(GL_TEXTURE_2D, textureID[57]);
+	 glPolygonMode(GL_FRONT, GL_FILL);
+	 glPolygonMode(GL_BACK, GL_FILL);
+	 glColor3f(0.6, 0.8, 0.8);
+	  glBegin ( GL_POLYGON );
+		//glTexCoord2d(0.0, 0.0);
+		glVertex3f ( 20.0, 0.0, 0.0 );
+		//glTexCoord2d(0.0, 1.0);
+		glVertex3f ( 20.0, 0.0, 10.0 );	
+		//glTexCoord2d(1.0, 1.0);
+		glVertex3f ( 20.0, 20.0, 10.0 );
+		//glTexCoord2d(1.0, 0.0);
+		glVertex3f ( 20.0, 20.0, 0.0 );
+	  glEnd();
+	glPopMatrix();
+
+//back wall
+	glPushMatrix();
+	//glBindTexture(GL_TEXTURE_2D, textureID[57]);
+	 glPolygonMode(GL_FRONT, GL_FILL);
+	 glPolygonMode(GL_BACK, GL_FILL);
+	 glColor3f(0.8, 0.8, 0.6);
+	  glBegin ( GL_POLYGON );
+		//glTexCoord2d(0.0, 0.0);
+		glVertex3f ( 0.0, 20.0, 0.0 );
+		//glTexCoord2d(0.0, 1.0);
+		glVertex3f ( 0.0, 20.0, 10.0 );	
+		//glTexCoord2d(1.0, 1.0);
+		glVertex3f ( 20.0, 20.0, 10.0 );
+		//glTexCoord2d(1.0, 0.0);
+		glVertex3f ( 20.0, 20.0, 0.0 );
+	  glEnd();
+	glPopMatrix();
+
+//front wall
+	glPushMatrix();
+	//glBindTexture(GL_TEXTURE_2D, textureID[57]);
+	 glPolygonMode(GL_FRONT, GL_FILL);
+	 glPolygonMode(GL_BACK, GL_FILL);
+	 glColor3f(0.8, 0.8, 0.6);
+	  glBegin ( GL_POLYGON );
+		//glTexCoord2d(0.0, 0.0);
+		glVertex3f ( 0.0, 0.0, 0.0 );
+		//glTexCoord2d(0.0, 1.0);
+		glVertex3f ( 0.0, 0.0, 10.0 );	
+		//glTexCoord2d(1.0, 1.0);
+		glVertex3f ( 20.0, 0.0, 10.0 );
+		//glTexCoord2d(1.0, 0.0);
+		glVertex3f ( 20.0, 0.0, 0.0 );
+	  glEnd();
+	glPopMatrix();
+///////////////////////////////
+
 ///////////////////////////////    
     showFPS();
     showFPP();

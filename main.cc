@@ -62,16 +62,47 @@ void idleFunc(){
 
 }
 
+void keyInput( unsigned char key, int x, int y)
+{
+
+if(key == 'w' || key == 'W'){
+
+Cam_x = Cam_x + 0.2;
+Cent_x = Cent_x + 0.2;
+ }
+
+if(key == 's' || key == 'S'){
+
+Cam_x = Cam_x - 0.2;
+Cent_x = Cent_x - 0.2;
+ }
+
+if(key == 'a' || key == 'A'){
+
+Cam_y = Cam_y - 0.2;
+Cent_y = Cent_y - 0.2;
+ }
+
+if(key == 'd' || key == 'D'){
+
+Cam_y = Cam_y + 0.2;
+Cent_y = Cent_y + 0.2;
+ }
+
+glutPostRedisplay();
+}
+
 int main(int argc, char** argv)
 {
 
  
     glutInit(&argc, argv);
     glutInitDisplayMode (GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGB);
-    glutInitWindowSize (500, 500); 
-    glutInitWindowPosition (100, 100);
+    glutInitWindowSize (1000, 1000); 
+    glutInitWindowPosition (400, 400);
     glutCreateWindow (argv[0]);
     init ();
+    glutKeyboardFunc(keyInput);
     glutReshapeFunc(reshape);
     glutDisplayFunc(display); 
     glutIdleFunc(idleFunc);

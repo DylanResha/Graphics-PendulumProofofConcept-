@@ -9,10 +9,16 @@ extern void drawString(GLuint, GLuint, void*, const char*);
 extern void showFPS(void);
 extern void showFPP(void);
 extern void checkFPS(int);
+//extern void keyInput();
 extern double t;
 extern double theta;
 extern double omega;
 extern unsigned frames;
 extern int oldTime;
-
+extern GLfloat Cam_x;
+extern GLfloat Cam_y;
+extern GLfloat Cam_z;
+extern GLfloat Cent_x;
+extern GLfloat Cent_y;
+extern GLfloat Cent_z;
 #endif
