@@ -277,7 +277,7 @@ void display(void)
     // center of the coordinate frame.  The positive Z-Axis will be up.
 
     gluLookAt( Cam_x, Cam_y, Cam_z,  // Eye
-                Cent_x, Cent_y, Cent_z,  // Center
+                Cam_x + xdir, Cam_y + ydir, Cam_z,  // Center
                 0.0,   0.0, 1.0); // Up
 
 /*    gluLookAt( 8.0, 0.0, 3.2,  // Eye

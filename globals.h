@@ -18,7 +18,8 @@ extern int oldTime;
 extern GLfloat Cam_x;
 extern GLfloat Cam_y;
 extern GLfloat Cam_z;
-extern GLfloat Cent_x;
-extern GLfloat Cent_y;
-extern GLfloat Cent_z;
+
+extern GLfloat rotAngle;
+extern GLfloat xdir;
+extern GLfloat ydir;
 #endif

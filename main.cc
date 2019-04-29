@@ -67,35 +67,38 @@ void keyInput( unsigned char key, int x, int y)
 
 if(key == 'd' || key == 'D'){
 
-Cam_x = Cam_x + 0.2;
-Cent_x = Cent_x + 0.2;
+
  }
 
 if(key == 'a' || key == 'A'){
 
-Cam_x = Cam_x - 0.2;
-Cent_x = Cent_x - 0.2;
+
  }
 
 if(key == 's' || key == 's'){
+ Cam_x -= xdir*0.1;
+ Cam_y -= ydir*0.1;
 
-Cam_y = Cam_y - 0.2;
-Cent_y = Cent_y - 0.2;
  }
 
 if(key == 'w' || key == 'W'){
-
-Cam_y = Cam_y + 0.2;
-Cent_y = Cent_y + 0.2;
- }
-
-if(key == 'c' || key == 'C'){
-
-
+ Cam_x += xdir*0.1;
+ Cam_y += ydir*0.1;
  }
 
 if(key == 'z' || key == 'Z'){
+ rotAngle += 0.1;
+  //if(rotAngle > 360.0) rotAngle = 0.0;
+ xdir = sin(rotAngle);
+ ydir = -cos(rotAngle);
 
+ }
+
+if(key == 'c' || key == 'C'){
+ rotAngle -= 0.1;
+  //if(rotAngle < 0.0) rotAngle = 360.0;
+ xdir = sin(rotAngle);
+ ydir = -cos(rotAngle);
  }
 
 glutPostRedisplay();

@@ -9,8 +9,9 @@
    GLfloat Cam_x = 0.8;
    GLfloat Cam_y = 0.0;
    GLfloat Cam_z = 2.0;
-   GLfloat Cent_x = 0.8;
-   GLfloat Cent_y = 1.0;
-   GLfloat Cent_z = 2.0;
+
+   GLfloat rotAngle = 0.0;
+   GLfloat xdir = 1.0;
+   GLfloat ydir = 0.0;
 
 #endif
