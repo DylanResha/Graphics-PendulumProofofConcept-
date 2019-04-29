@@ -89,6 +89,17 @@ Cam_y = Cam_y + 0.2;
 Cent_y = Cent_y + 0.2;
  }
 
+if(key == 'c' || key == 'C'){
+
+
+ }
+
+if(key == 'z' || key == 'Z'){
+
+Cent_x -= cos(20*M_PI/180.0);
+Cent_y -= sin(20*M_PI/180.0);
+ }
+
 glutPostRedisplay();
 }
 
