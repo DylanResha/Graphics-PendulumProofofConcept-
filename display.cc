@@ -81,13 +81,13 @@ void table(void)
 	 glColor3f(1.0, 0.0, 0.0);
 	  glBegin ( GL_POLYGON );
 		//glTexCoord2d(0.0, 0.0);
-		glVertex3f ( 0.0, 0.0, 2.0 );
+		glVertex3f ( 3.0, 0.0, 2.0 );
 		//glTexCoord2d(0.0, 1.0);
-		glVertex3f ( 0.0, 0.0, 1.8 );	
+		glVertex3f ( 3.0, 0.0, 1.8 );	
 		//glTexCoord2d(1.0, 1.0);
-		glVertex3f ( 0.0, 5.0, 1.8 );
+		glVertex3f ( 3.0, 5.0, 1.8 );
 		//glTexCoord2d(1.0, 0.0);
-		glVertex3f ( 0.0, 5.0, 2.0 );
+		glVertex3f ( 3.0, 5.0, 2.0 );
 	  glEnd();
 	glPopMatrix();
 
@@ -275,15 +275,15 @@ void display(void)
 
     // We are going to set our position to be down the Y-Axis looking at the
     // center of the coordinate frame.  The positive Z-Axis will be up.
-/*
+
     gluLookAt( Cam_x, Cam_y, Cam_z,  // Eye
                 Cent_x, Cent_y, Cent_z,  // Center
                 0.0,   0.0, 1.0); // Up
-*/
-    gluLookAt( 8.0, 0.0, 3.2,  // Eye
+
+/*    gluLookAt( 8.0, 0.0, 3.2,  // Eye
                10.0, 10.0, 3.0,  // Center
                 0.0,   0.0, 1.0); // Up
-
+*/
 
     glEnable(GL_DEPTH_TEST);
 

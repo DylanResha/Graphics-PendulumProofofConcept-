@@ -65,25 +65,25 @@ void idleFunc(){
 void keyInput( unsigned char key, int x, int y)
 {
 
-if(key == 'w' || key == 'W'){
+if(key == 'd' || key == 'D'){
 
 Cam_x = Cam_x + 0.2;
 Cent_x = Cent_x + 0.2;
  }
 
-if(key == 's' || key == 'S'){
+if(key == 'a' || key == 'A'){
 
 Cam_x = Cam_x - 0.2;
 Cent_x = Cent_x - 0.2;
  }
 
-if(key == 'a' || key == 'A'){
+if(key == 's' || key == 's'){
 
 Cam_y = Cam_y - 0.2;
 Cent_y = Cent_y - 0.2;
  }
 
-if(key == 'd' || key == 'D'){
+if(key == 'w' || key == 'W'){
 
 Cam_y = Cam_y + 0.2;
 Cent_y = Cent_y + 0.2;
@@ -96,8 +96,6 @@ if(key == 'c' || key == 'C'){
 
 if(key == 'z' || key == 'Z'){
 
-Cent_x -= cos(20*M_PI/180.0);
-Cent_y -= sin(20*M_PI/180.0);
  }
 
 glutPostRedisplay();
