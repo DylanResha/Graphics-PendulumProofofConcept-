@@ -1,8 +1,8 @@
 
 CC = gcc
-LDLIBS =  -lglut -lGL -lGLU -lm
+LDLIBS =  -lglut -lGL -lGLU -lm 
 HEADERS = includes.h globals.h
-OBJS = init.o display.o pend.o reshape.o globals.o showFps.o input.o
+OBJS = init.o display.o reshape.o globals.o showFps.o input.o
 
 all : pendpoc tags
 
@@ -18,11 +18,9 @@ init.o : init.cc $(HEADERS)
 display.o : display.cc $(HEADERS)
 	$(CC) $(CFLAGS) display.cc -c
 
-pend.o : pend.c $(HEADERS)
-	$(CC) $(CFLAGS) pend.c -c
 
-globals.o : globals.c $(HEADERS)
-	$(CC) $(CFLAGS) globals.c -c
+globals.o : globals.cc $(HEADERS)
+	$(CC) $(CFLAGS) globals.cc -c
 
 reshape.o : reshape.cc $(HEADERS)
 	$(CC) $(CFLAGS) reshape.cc -c
@@ -30,8 +28,8 @@ reshape.o : reshape.cc $(HEADERS)
 showFps.o : showFps.cc $(HEADERS)
 	$(CC) $(CFLAGS) showFps.cc -c
 
-input.o : input.c $(HEADERS)
-	$(CC) $(CFLAGS) input.c -c
+input.o : input.cc $(HEADERS)
+	$(CC) $(CFLAGS) input.cc -c
 
 clean :
 	rm *.o

@@ -66,12 +66,12 @@ void keyInput( unsigned char key, int x, int y)
 {
 
 if(key == 'd' || key == 'D'){
-
+//need cross product of direction vector
 
  }
 
 if(key == 'a' || key == 'A'){
-
+//need cross product of direction vector
 
  }
 

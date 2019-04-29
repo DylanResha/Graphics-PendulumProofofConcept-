@@ -280,10 +280,7 @@ void display(void)
                 Cam_x + xdir, Cam_y + ydir, Cam_z,  // Center
                 0.0,   0.0, 1.0); // Up
 
-/*    gluLookAt( 8.0, 0.0, 3.2,  // Eye
-               10.0, 10.0, 3.0,  // Center
-                0.0,   0.0, 1.0); // Up
-*/
+
 
     glEnable(GL_DEPTH_TEST);
 

@@ -1,4 +1,4 @@
-#include "includes.h"
+//#include "includes.h"
 //#include "globals.h"
 // These two functions are the first and second derivative equations
 // to be used in the Runge-Kutta method for the dynamical motion of the pendulum 

@@ -22,4 +22,10 @@ extern GLfloat Cam_z;
 extern GLfloat rotAngle;
 extern GLfloat xdir;
 extern GLfloat ydir;
+
+
+extern glm::vec3 camPos; 
+extern glm::vec3 camTar;
+extern glm::vec3 camDir;
+extern glm::vec3 up;
 #endif

@@ -14,4 +14,10 @@
    GLfloat xdir = 1.0;
    GLfloat ydir = 0.0;
 
+glm::vec3 camPos = glm::vec3(0.8f, 0.0f, 2.0f); 
+glm::vec3 camTar = glm::vec3(0.8f, 1.0f, 2.0f);
+glm::vec3 camDir = glm::normalize(camPos-camTar);
+glm::vec3 up = glm::vec3(0.0f, 0.0f, 1.0f);
+
+
 #endif

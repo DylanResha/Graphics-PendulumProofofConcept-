@@ -1,5 +1,5 @@
-#include "includes.h"
-#include "globals.h"
+//#include "includes.h"
+//#include "globals.h"
 
 /*
 extern GLfloat Cam_r;
@@ -10,7 +10,7 @@ extern GLfloat Cent_y;
 extern GLfloat Cent_z;
 
 */
-void keyInput( unsigned char key, int x, int y)
-{
+//void keyInput( unsigned char key, int x, int y)
+//{
 
-}
+//}
