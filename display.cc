@@ -276,9 +276,10 @@ void display(void)
     // We are going to set our position to be down the Y-Axis looking at the
     // center of the coordinate frame.  The positive Z-Axis will be up.
 
-    gluLookAt( Cam_x, Cam_y, Cam_z,  // Eye
-                Cam_x + xdir, Cam_y + ydir, Cam_z,  // Center
-                0.0,   0.0, 1.0); // Up
+    gluLookAt( (double)camPos.x, (double)camPos.y, (double)camPos.z, //eye
+            (double) camTar.x, (double) camTar.y, (double) camTar.z, //center
+            (double) up.x, (double) up.y, (double) up.z);// up
+
 
 
 

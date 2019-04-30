@@ -15,17 +15,10 @@ extern double theta;
 extern double omega;
 extern unsigned frames;
 extern int oldTime;
-extern GLfloat Cam_x;
-extern GLfloat Cam_y;
-extern GLfloat Cam_z;
-
-extern GLfloat rotAngle;
-extern GLfloat xdir;
-extern GLfloat ydir;
-
-
 extern glm::vec3 camPos; 
 extern glm::vec3 camTar;
 extern glm::vec3 camDir;
 extern glm::vec3 up;
+extern float speed;
+extern float rotAngle;
 #endif

@@ -64,42 +64,69 @@ void idleFunc(){
 
 void keyInput( unsigned char key, int x, int y)
 {
+float tx, ty;
 
 if(key == 'd' || key == 'D'){
 //need cross product of direction vector
-
+ 	camDir = camTar - camPos;
+        camDir = glm::normalize(camDir);
+        camPos = camPos + glm::normalize(glm::cross(camDir, up)) * speed;
+        camTar = camTar + glm::normalize(glm::cross(camDir, up)) * speed;
  }
 
 if(key == 'a' || key == 'A'){
 //need cross product of direction vector
+ 	camDir = camTar - camPos;
+        camDir = glm::normalize(camDir);
+        camPos = camPos - glm::normalize(glm::cross(camDir, up)) * speed;
+        camTar = camTar - glm::normalize(glm::cross(camDir, up)) * speed;
 
  }
 
 if(key == 's' || key == 's'){
- Cam_x -= xdir*0.1;
- Cam_y -= ydir*0.1;
-
+        camDir = camTar - camPos;
+        camDir = glm::normalize(camDir);
+        camPos.x = camPos.x - speed*camDir.x;
+        camPos.y = camPos.y - speed*camDir.y;
+        camTar.x = camTar.x - speed*camDir.x;
+        camTar.y = camTar.y - speed*camDir.y;
  }
 
 if(key == 'w' || key == 'W'){
- Cam_x += xdir*0.1;
- Cam_y += ydir*0.1;
+
+        camDir = camTar - camPos;
+        camDir = glm::normalize(camDir);
+        camPos.x = camPos.x + speed*camDir.x;
+        camPos.y = camPos.y + speed*camDir.y;
+        camTar.x = camTar.x + speed*camDir.x;
+        camTar.y = camTar.y + speed*camDir.y;
+
  }
 
 if(key == 'z' || key == 'Z'){
- rotAngle += 0.1;
-  //if(rotAngle > 360.0) rotAngle = 0.0;
- xdir = sin(rotAngle);
- ydir = -cos(rotAngle);
+
+ rotAngle += 1.0;
+ camDir = camTar - camPos;
+ tx = sin(glm::radians(rotAngle));
+ ty = -cos(glm::radians(rotAngle));
+
+ camTar.x = camPos.x + tx;
+ camTar.y = camPos.y + ty;
 
  }
 
 if(key == 'c' || key == 'C'){
- rotAngle -= 0.1;
-  //if(rotAngle < 0.0) rotAngle = 360.0;
- xdir = sin(rotAngle);
- ydir = -cos(rotAngle);
+ 
+rotAngle -= 1.0;
+ camDir = camTar - camPos;
+ tx = sin(glm::radians(rotAngle));
+ ty = -cos(glm::radians(rotAngle));
+
+ camTar.x = camPos.x + tx;
+ camTar.y = camPos.y + ty;
  }
+
+//bounds
 
 glutPostRedisplay();
 }
