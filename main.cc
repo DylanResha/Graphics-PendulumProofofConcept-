@@ -62,12 +62,35 @@ void idleFunc(){
 
 }
 
+void specialKey(int key, int x, int y)
+{
+
+ if(key == GLUT_KEY_PAGE_UP){
+  camPos.z = camPos.z + speed;
+  camTar.z = camTar.z + speed;
+ }
+
+ if(key == GLUT_KEY_PAGE_DOWN){
+  camPos.z = camPos.z - speed;
+  camTar.z = camTar.z - speed;
+ }
+//bounds
+if(camPos.z <0.5){
+ camPos.z = 0.5;
+ camTar.z = 0.5;
+}
+if(camPos.z >9.5){
+ camPos.z = 9.5;
+ camTar.z = 9.5;
+}
+}
+
 void keyInput( unsigned char key, int x, int y)
 {
 float tx, ty;
 
 if(key == 'd' || key == 'D'){
-//need cross product of direction vector
+
  	camDir = camTar - camPos;
         camDir = glm::normalize(camDir);
         camPos = camPos + glm::normalize(glm::cross(camDir, up)) * speed;
@@ -75,7 +98,7 @@ if(key == 'd' || key == 'D'){
  }
 
 if(key == 'a' || key == 'A'){
-//need cross product of direction vector
+
  	camDir = camTar - camPos;
         camDir = glm::normalize(camDir);
         camPos = camPos - glm::normalize(glm::cross(camDir, up)) * speed;
@@ -84,12 +107,14 @@ if(key == 'a' || key == 'A'){
  }
 
 if(key == 's' || key == 's'){
+
         camDir = camTar - camPos;
         camDir = glm::normalize(camDir);
         camPos.x = camPos.x - speed*camDir.x;
         camPos.y = camPos.y - speed*camDir.y;
         camTar.x = camTar.x - speed*camDir.x;
         camTar.y = camTar.y - speed*camDir.y;
+
  }
 
 if(key == 'w' || key == 'W'){
@@ -100,7 +125,7 @@ if(key == 'w' || key == 'W'){
         camPos.y = camPos.y + speed*camDir.y;
         camTar.x = camTar.x + speed*camDir.x;
         camTar.y = camTar.y + speed*camDir.y;
-
+  
  }
 
 if(key == 'z' || key == 'Z'){
@@ -128,7 +153,6 @@ rotAngle -= 1.0;
 
 //bounds
 
-glutPostRedisplay();
 }
 
 int main(int argc, char** argv)
@@ -142,6 +166,7 @@ int main(int argc, char** argv)
     glutCreateWindow (argv[0]);
     init ();
     glutKeyboardFunc(keyInput);
+    glutSpecialFunc(specialKey);
     glutReshapeFunc(reshape);
     glutDisplayFunc(display); 
     glutIdleFunc(idleFunc);
